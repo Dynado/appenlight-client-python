@@ -342,7 +342,7 @@ class Frame(object):
         self.locals = tb.tb_frame.f_locals
         self.globals = tb.tb_frame.f_globals
 
-        fn = inspect.getsourcefile(tb) or inspect.getfile(tb)
+        fn = tb.tb_frame.f_code.co_filename
         if fn[-4:] in ('.pyo', '.pyc'):
             fn = fn[:-1]
         # if it's a file on the file system resolve the real filename.
